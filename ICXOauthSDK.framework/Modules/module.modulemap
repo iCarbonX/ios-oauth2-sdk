@@ -1,0 +1,6 @@
+framework module ICXOauthSDK {
+  umbrella header "ICXOauthSDK.h"
+
+  export *
+  module * { export * }
+}
