@@ -16,4 +16,5 @@ FOUNDATION_EXPORT const unsigned char ICXOauthSDKVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <ICXOauthSDK/PublicHeader.h>
 
+#import "ICXOauthView.h"
 

@@ -8,18 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
-//#import <WebViewJavascriptBridge/WebViewJavascriptBridge.h>
-#import "WebViewJavascriptBridge.h"
+#import <WebViewJavascriptBridge/WebViewJavascriptBridge.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
+//授权模式
 typedef NS_ENUM(NSUInteger, ICXOauthType) {
-    ICXOauthTypeOauth,          //走授权模式
-    ICXOauthTypeGetCode,        //直接获取code
+    ICXOauthTypeOauth,          //走标准授权模式
+    ICXOauthTypeGetCode,        //直接获取code，在icxOauthViewGetcode代理获取code
 };
 
 @protocol ICXOauthViewDelegate <NSObject>
-
+@optional
 //js回调信息
 - (void)icxOauthViewAouthInfo:(NSDictionary *)info;
 
@@ -37,6 +37,7 @@ typedef NS_ENUM(NSUInteger, ICXOauthType) {
 @property (nonatomic,strong) WKWebView *webView;
 @property (nonatomic,strong) WebViewJavascriptBridge *bridge;
 @property (nonatomic,strong) NSString *loginToken;
+@property (nonatomic,strong) NSString *clientId;   //注册app时获取到的clientId
 @property (nonatomic,assign) ICXOauthType oauthType;
 
 @property (nonatomic,weak)id <ICXOauthViewDelegate> icxOauthViewDelegate;
